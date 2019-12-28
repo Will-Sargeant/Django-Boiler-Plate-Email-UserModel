@@ -1,0 +1,35 @@
+{% extends "users/appbase.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+{% load static %}
+<div class="container" id="pagewrapper">
+	<div class="logoheader">
+        <h3 id="heading">Login </h3>
+  	</div>
+
+	    <div id="login-form">
+             <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group container proceedbutton text-center">
+                <button type="submit" class="btn btn-primary" name="btn-login">Log In</button>   <a  class="btn btn-primary"  href ="{% url 'register' %}">Register </a>
+            </form>
+            </div>
+            <div class="border-top pt-3">
+                <small class="text-muted ml-2">
+                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
